@@ -151,4 +151,4 @@ HOST = "192.168.1.10"
 
 ## 📄 License
 
-This project is free to use for educational and non-commercial purposes.
+This project is licensed under the MIT License.
