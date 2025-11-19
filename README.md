@@ -6,7 +6,7 @@ Originally developed as a Computer Networks course project, this application run
 ## 📸 Screenshots
 
 ### Start Screen
-![Start Screen](assets/images/start.png)
+![Start Screen](assets/images/start_screen.png)
 
 ### Ship Placement
 ![Ship Placement](assets/images/placement.png)
