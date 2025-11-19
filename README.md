@@ -1,98 +1,154 @@
-Battleship Multiplayer (Python)
+# Battleship Multiplayer (Python)
 
-A two-player Battleship game built with Python, Pygame, and TCP sockets.
-This project was originally developed as a Computer Networks course assignment and runs on a local network using a server–client architecture.
+A two-player Battleship game built with Python, Pygame, and TCP sockets.  
+Originally developed as a Computer Networks course project, this application runs on a local network using a classic client–server architecture.
 
-Features
+## 📸 Screenshots
 
-Two-player multiplayer gameplay (Player1 vs Player2)
+### Start Screen
+![Start Screen](assets/images/start.png)
 
-TCP socket communication
+### Ship Placement
+![Ship Placement](assets/images/placement.png)
 
-Server–client architecture
+### Gameplay
+![Gameplay](assets/images/gameplay.png)
 
-Fullscreen graphical interface using Pygame
+## 🎮 Features
 
-Drag-and-drop ship placement
+- Two-player multiplayer (Player1 vs Player2)
+- TCP socket–based communication
+- Server–client architecture
+- Fullscreen graphical interface with Pygame
+- Drag-and-drop ship placement
+- Rotate ships with the R key
+- Visual and audio feedback for hit, miss, and sink
+- Separate screens for: start menu, ship placement, waiting, gameplay, game-over
 
-Rotate ships with the R key
+## 🧱 Project Structure
 
-Visual and audio feedback for hit, miss, and sink
-
-Animated screens (start, waiting, gameplay, game-over)
-
-Project Structure
-
+```
 battleship-game/
-├── src/
-│ ├── server.py
-│ ├── client1.py
-│ ├── client2.py
-│
-├── assets/
-│ ├── images/
-│ │ ├── ship2.png
-│ │ ├── ship3.png
-│ │ ├── ship4.png
-│ │ ├── ship5.png
-│ │ └── sea_background.jpg
-│ └── sounds/
-│ ├── hit.wav
-│ ├── miss.wav
-│ ├── start.mp3
-│ └── win.mp3 (optional)
-│
-└── README.md
+  ├── src/
+  │     server.py
+  │     client1.py
+  │     client2.py
+  │
+  ├── assets/
+  │     images/
+  │         ship2.png
+  │         ship3.png
+  │         ship4.png
+  │         ship5.png
+  │         sea_background.jpg
+  │
+  │     sounds/
+  │         hit.wav
+  │         miss.wav
+  │         start.mp3
+  │         win.mp3 (optional)
+  │
+  └── README.md
+```
 
-How to Run
+## ⚙️ Installation
 
-Install dependencies:
+1. Clone the repository:
+
+```
+git clone https://github.com/mVefa/battleship-multiplayer-python.git
+cd battleship-multiplayer-python
+```
+
+2. Install the dependency:
+
+```
 pip install pygame
+```
 
-Start the server:
-cd battleship-game/src
+Python 3.x and pip must be installed.
+
+## ▶️ How to Run
+
+Open 3 separate terminals:
+
+**Terminal 1 – Start the server**
+
+```
+cd battleship-multiplayer-python/src
 python server.py
+```
 
-Start Player 1:
-cd battleship-game/src
+**Terminal 2 – Start Player 1**
+
+```
+cd battleship-multiplayer-python/src
 python client1.py
+```
 
-Start Player 2:
-cd battleship-game/src
+**Terminal 3 – Start Player 2**
+
+```
+cd battleship-multiplayer-python/src
 python client2.py
+```
 
-Gameplay
+## 🌐 Running on a Local Network (LAN)
 
-Players place ships on their board
+1. Find the server machine’s IP address (e.g., 192.168.1.10)  
+2. Replace the HOST value in the Python files:
 
-When both players are ready, the server starts the game
+```
+HOST = "192.168.1.10"
+```
 
-Players take turns targeting grid cells
+3. Start server on that machine, and run client1/client2 from other devices on the same network.
 
-Server handles all hit/miss/sink logic
+## 🕹️ Gameplay Overview
 
-First player to sink all enemy ships wins
+- Players place ships by dragging them onto the grid  
+- Press R to rotate a ship  
+- After all ships are placed, press START  
+- When both players are ready, the server starts the match  
+- Players take turns selecting grid cells on the opponent’s board  
+- Server sends hit/miss/sink results to both clients  
+- First player to sink all enemy ships wins  
 
-Technologies Used
+## 🧠 Architecture & Communication
 
-Python
+- Server maintains:
+  - Player names
+  - Ship positions
+  - Turn order
+  - Hit/miss/sink logic
+  - Game-over state
 
-Pygame
+- All communication is done using JSON messages over TCP sockets:
+  - join  
+  - place  
+  - ready  
+  - move  
+  - result  
+  - opponent_move  
+  - gameover  
+  - turn  
 
-TCP sockets
+## 🛠️ Technologies Used
 
-Threading
+- Python 3  
+- Pygame  
+- TCP sockets  
+- Threading  
+- JSON messaging  
 
-JSON protocol
+## 🔮 Possible Improvements
 
-Notes
+- In-game chat  
+- Configurable board sizes  
+- AI opponent  
+- Online matchmaking  
+- Web-based version  
 
-Designed for local network multiplayer
+## 📄 License
 
-Fully compatible with Windows fullscreen mode
-
-Code refactored and cleaned for public release
-
-License
-
-This project is free to use for educational purposes.
+This project is free to use for educational and non-commercial purposes.
